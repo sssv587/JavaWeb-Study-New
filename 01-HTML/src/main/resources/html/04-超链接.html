@@ -10,13 +10,23 @@
         a
            href   用于定义要跳转的目标资源的地址
                  1 完整的url https://www.baidu.com
-                 2 相对路径
+                 2 相对路径  以当前资源的所在路径为出发点去找目标资源
+                            以 ./ 表示的当前资源的所在路径，可以省略不写
+                              ../ 表示当前资源的的上一层路径，需要时必须显示写出
                  3 绝对路径
+                            无论当前资源在哪里，使用以固定的位置作为出发点去找目标资源
+                            以 / 开头
 
            target 用于定义目标资源的打开方式
                  _self  在当前窗口打开目标资源
                  _blank 开启新窗口打开目标资源
 -->
     <a href="https://www.baidu.com" target="_self">字节</a>
+    <!-- 相对路径写法 -->
+    <a href="03有序和无序列表.html" target="_blank">03有序和无序列表</a>
+    <a href="a/test.html" target="_blank">test</a>
+
+    <!-- 绝对路径写法 -->
+    <a href="/JavaWeb-Study-New/01-HTML/src/main/resources/html/a/test.html" target="_blank">test</a>
 </body>
 </html>
