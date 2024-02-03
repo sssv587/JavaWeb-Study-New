@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+            1 元素选择器   根据标签的名字确定样式的作用元素
+                语法：标签名{}
+                缺点：某些同名的元素不希望使用某些样式，某些不同名的元素也是用该样式，都无法协调
+            2 id选择器 根据标签的id值确定样式的作用元素
+                       一般每个元素都有id属性，但是在一个页面中，id的值不应该相同，id具有唯一性
+                语法：#id值{}
+                缺点：id值有唯一性，样式只能作用到一个元素上
+            3 class选择器 根据元素的class属性值确定样式的作用元素
+                         元素的class属性值可以有重复 而且一个元素的class属性可以有多个值
+                语法： .class属性值{}
+                缺点:
+
+        */
+        /*input {*/
+        /*    width: 80px;*/
+        /*    height: 40px;*/
+        /*    background-color: chartreuse;*/
+        /*    color: white;*/
+        /*    border: 3px solid green;*/
+        /*    font-size: 22px;*/
+        /*    font-family: '隶书';*/
+        /*    line-height: 30px;*/
+        /*    border-radius: 5px;*/
+        /*}*/
+
+        /*#btn4 {*/
+        /*    width: 80px;*/
+        /*    height: 40px;*/
+        /*    background-color: chartreuse;*/
+        /*    color: white;*/
+        /*    border: 3px solid green;*/
+        /*    font-size: 22px;*/
+        /*    font-family: '隶书';*/
+        /*    line-height: 30px;*/
+        /*    border-radius: 5px;*/
+        /*}*/
+
+        .shapeClass {
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        .colorClass {
+            background-color: rgb(179, 241, 85);
+            color: white;
+            border: 3px solid green;
+        }
+
+        .fontClass {
+            font-size: 24px;
+            font-family: '隶书';
+            line-height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<input id="btn1" class="shapeClass colorClass fontClass" type="button" value="按钮">
+<input id="btn2" type="button" value="按钮">
+<input id="btn3" type="button" value="按钮">
+<input id="btn4" type="button" value="按钮">
+<button id="btn5">按钮</button>
+</body>
+</html>
