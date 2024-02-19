@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        1、JS中变量的声明 统统使用var  var i = 10  var i = "asdf"
+            JS是弱类型的，不是没有类型，变量在声明时不指定类型，赋值时才确定类型
+            console.log() 打印输出
+        2、JS中常见的数据类型
+            数值类型  number 整数、小数
+            字符串类型 string
+            布尔类型  boolean
+            引用类型  Object
+            function类型  function
+            命名未赋值 undefined 值:undefined
+            赋予null  Object 值:null
+          判断数据类型那个的运算符 typeof
+         */
+        // var i = 10
+        // var str = "asdf"
+        // console.log(i)
+        // console.log(str)
+
+        // var i = 10
+        // console.log(i)
+        // console.log(typeof i)
+        //
+        // i = "asdf"
+        // console.log(i)
+        // console.log(typeof i)
+        //
+        // var fun1 = function fun1(){}
+        // console.log(fun1)
+        // console.log(typeof fun1)
+        //
+        // var y
+        // console.log(y)
+        // console.log(typeof y)
+        //
+        // var x = null
+        // console.log(x)
+        // console.log(typeof x)
+
+        /*
+        js中 使用var声明变量的特点
+            + 1 弱类型变量,可以统一声明成var
+            + 2 var声明的变量可以再次声明
+            + 3 变量可以使用不同的数据类型多次赋值
+            + 4 JS的语句可以以; 结尾,也可以不用;结尾
+            + 5 变量标识符严格区分大小写
+            + 6 标识符的命名规则参照JAVA
+            + 7 如果使用了 一个没有声明的变量,那么运行时会报uncaught ReferenceError: *** is not defined   at index.html:行号:列号
+            + 8 如果一个变量只声明,没赋值,那么值是undefined
+         */
+        var i = 10
+        var str = "asdf"
+        var i = true // 重复声明 不同类型复制
+        console.log(i)
+        console.log(I) //区分大小写
+    </script>
+</head>
+<body>
+
+</body>
+</html>
