@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            1、算术 + - * / %
+                除零 Infinity
+                模零 NaN not a number
+            2、复合算术 ++ -- +- -= *= /= %=
+                除零 Infinity
+                模零 NaN not a number
+            3、关系 > < >= <= != == ===
+                == 如果两端的数据类型不一致，会尝试将两端的数据都转换为number在对比
+                       '123' ---> 123
+                       true  ---> 1
+               === 如果两端的数据类型不一致，直接返回false，相同则会继续对比
+            4、逻辑 || &&
+            5、条件 条件表达式?值1:值2
+            6、位 | & ^ << >>
+         */
+        // console.log(10/2)
+        // console.log(10/4)
+        // console.log(10/0)
+        // console.log(10%0)
+        //
+        // var i = 10
+        // console.log(i/=0)
+
+        console.log(1==1)
+        console.log(1=='1')
+        console.log(1==true)
+
+        console.log(1===1)
+        console.log(1==='1')
+        console.log(1===true)
+    </script>
+</head>
+<body>
+
+</body>
+</html>
