@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        1、数组
+            1) 数组的创建方式
+            2) 数组的API
+         */
+        // 数组的创建
+        // var arr = new Array()
+        // var arr = new Array(5)
+        // var arr = new Array("lisi", 10, false)
+        // var arr = ["lisi", 11, false]
+        // console.log(arr)
+        // console.log(arr.length)
+        // 向数组中添加数据
+        // arr[0] = "zhangsan"
+        // arr[1] = 10
+        // arr[9] = true
+        // arr.length = 20
+        // console.log(arr)
+        // console.log(arr.length)
+
+        var fruits = ["apple", "orange", "banana"]
+        var fruits2 = ["cherry", "purple", "cherry", "pink"]
+        var fruitsAll = fruits.concat(fruits2)
+        console.log(fruits)
+        console.log(fruits2)
+        console.log(fruitsAll)
+        // 移除并返回最后一个元素
+        var res = fruitsAll.pop();
+        console.log(res)
+        console.log(fruitsAll)
+        // 从尾端增加元素并返回长度
+        var len = fruitsAll.push("葡萄");
+        console.log(len)
+        console.log(fruitsAll)
+        // 查找cherry
+        var index1 = fruitsAll.indexOf("cherry");
+        var index2 = fruitsAll.lastIndexOf("cherry");
+        console.log(index1)
+        console.log(index2)
+        // 反转
+        fruitsAll.reverse()
+        console.log(fruitsAll)
+        // 转换为字符串
+        console.log(fruitsAll.join(""))
+        // 截取数据 左闭右开
+        console.log(fruitsAll.slice(2, 5))
+        // 删除或者增加数据
+        console.log(fruitsAll)
+        fruitsAll.splice(2, 0, 'el1', 'el2')
+        console.log(fruitsAll)
+        fruitsAll.splice(2, 2, 'el3', 'el4')
+        console.log(fruitsAll)
+    </script>
+</head>
+<body>
+
+</body>
+</html>
