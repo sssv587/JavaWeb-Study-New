@@ -6,6 +6,11 @@ import com.futurebyte.pojo.Dog;
 import com.futurebyte.pojo.Person;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author yuhang.sun
  * @version 1.0
@@ -31,5 +36,37 @@ public class TestJson {
         ObjectMapper objectMapper = new ObjectMapper();
         Person person = objectMapper.readValue(personStr, Person.class);
         System.out.println(person);
+    }
+
+    // map
+    @Test
+    public void testMapToJson() throws JsonProcessingException {
+        Map data = new HashMap();
+        data.put("a", "valuea");
+        data.put("b", "valueb");
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String s = objectMapper.writeValueAsString(data);
+        System.out.println(s);
+    }
+
+    // list array
+    @Test
+    public void testListToJson() throws JsonProcessingException {
+//        List data = new ArrayList();
+//        data.add("a");
+//        data.add("b");
+//        data.add("c");
+
+//        String[] data = {"a", "b", "c"};
+
+        Dog dog = new Dog("小黄");
+        Person person = new Person("张三", 10, dog);
+        List data = new ArrayList();
+        data.add(person);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String s = objectMapper.writeValueAsString(data);
+        System.out.println(s);
     }
 }
