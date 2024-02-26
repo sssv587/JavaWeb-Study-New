@@ -12,6 +12,12 @@
                   prompt
                   confirm
              定时任务
+
+           history 窗口的访问地址
+           location
+           sessionStorage 用于存储一些会话级数据(浏览器关闭数据清除)
+           localStorage   用于存储一些持久级数据(浏览器关闭数据还在)
+           console
          */
         function fun1() {
             window.alert("hello")
@@ -32,6 +38,40 @@
                 console.log("hello")
             }, 2000)
         }
+
+        function funA() {
+            // 向前翻页
+            history.back()
+        }
+
+        function funB() {
+            // 向后翻页
+            // history.forward()
+            history.go(1) // 向后翻一页
+        }
+
+        function funC() {
+            location.href = "http://www.baidu.com" // 修改地址栏中的url
+        }
+
+        function funD() {
+            // 向sessionStorage中存储数据
+            sessionStorage.setItem("keya", "valueA")
+            // 向localStorage中存储数据
+            localStorage.setItem("keyb", "valueB")
+        }
+
+        function funE() {
+            console.log(sessionStorage.getItem("keya"))
+            console.log(localStorage.getItem("keyb"))
+        }
+
+        function funF() { // 清除数据
+            sessionStorage.removeItem("keya")
+            localStorage.removeItem("keyb")
+            console.log(sessionStorage.getItem("keya"))
+            console.log(localStorage.getItem("keyb"))
+        }
     </script>
 
 </head>
@@ -40,5 +80,20 @@
     <button onclick="fun2()">信息输入框</button>
     <button onclick="fun3()">信息确认框</button>
     <button onclick="fun4()">两秒钟后向控制台打印hello</button>
+
+    <hr>
+
+    <button onclick="funA()">上一页</button>
+    <button onclick="funB()">下一页</button>
+    <a href="http://www.baidu.com">百度</a>
+
+    <hr>
+
+    <button onclick="funC()">百度</button>
+
+    <hr>
+    <button onclick="funD()">存储数据</button>
+    <button onclick="funE()">读取数据</button>
+    <button onclick="funF()">清空数据</button>
 </body>
 </html>
