@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        3、对元素进行操作
+            1、操作元素的属性   元素名.属性名=""
+            2、操作元素的样式   元素.style.样式名=""  样式名"-"要进行驼峰转换
+            3、操作元素的文本   元素名.innerText    只识别文本
+                              元素名.innerHTML    同时可以识别html代码
+            4、增删元素
+         */
+        function changeAttribute() {
+            var in1 = document.getElementById("in1");
+            // 语法 元素.属性名="" 赋值
+            // 获得属性值
+            console.log(in1.type)
+            console.log(in1.value)
+            // 修改属性值
+            in1.type = "button"
+            in1.value = "嗨"
+        }
+
+        function changeStyle() {
+            var in1 = document.getElementById("in1");
+            // 语法 元素.style.样式名=""  原始样式名中的"-"符号 要转换驼峰式 background-color -> backgroundColor
+            in1.style.color = "pink"
+            in1.style.borderRadius = "5px"
+        }
+
+        function changeText() {
+            var div01 = document.getElementById("div01");
+            /*
+            语法 元素名.innerText    只识别文本
+                 元素名.innerHTML    同时可以识别html代码
+             */
+            console.log(div01.innerText)
+            div01.innerText= "<h1>hi</h1>"
+            div01.innerHTML = "<h1>hi</h1>"
+        }
+    </script>
+    <style>
+        #in1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input id="in1" type="text" value="hello">
+    <div id="div01">
+        hello
+    </div>
+
+    <hr>
+    <button onclick="changeAttribute()">操作属性</button>
+    <button onclick="changeStyle()">操作样式</button>
+    <button onclick="changeText()">操作文本</button>
+</body>
+</html>
