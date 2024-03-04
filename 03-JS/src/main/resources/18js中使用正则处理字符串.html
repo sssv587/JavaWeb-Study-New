@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /* 验证 */
+        // 定义一个正则表达式
+        // var reg = /a/
+
+        // 自定义一个字符串
+        // var str = 'hello world!'
+        // 校验是否符合正则的规则
+        // console.log(reg.test(str))
+
+        /* 匹配 g 全局的意思 */
+        // var reg = /o/g
+        // var str = 'hello world!'
+        // var result = str.match(reg)
+        // console.log(result)
+
+        // 替换 i忽略大小写
+        // var reg = /o/gi
+        // var str = 'hello wOrld!'
+        // var newStr = str.replace(reg,'@')
+        // console.log(newStr)
+
+        // var str1 = 'java love me'
+        // var str2 = 'I love java'
+        // var str3 = 'java'
+        //
+        // var reg1 = /^java/
+        // var reg2 = /java$/
+        // var reg3 = /^java$/
+        //
+        // console.log(reg1.test(str1))
+        // console.log(reg2.test(str2))
+        // console.log(reg3.test(str3))
+
+        // 校验用户名是否合法
+        /*
+            1、必须是字母开头
+            2、长度必须是6~10位
+            3、后面其他字符可以是大小写字母、数字和下划线
+         */
+        var str = 'asdfqwer'
+        var reg = /^[a-zA-Z][a-zA-Z0-9_]{5,9}$/
+        console.log(reg.test(str))
+    </script>
+</head>
+<body>
+
+</body>
+</html>
