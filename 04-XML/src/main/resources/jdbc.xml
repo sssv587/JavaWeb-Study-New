@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 1、根标签只能有一个
+ 2、第一行永远都是 <?xml version="1.0" encoding="UTF-8"?> 前面不可以放任何东西
+ 3、xml是有约束的 约束用于限定xml内部能编写的内容
+    dtd     简单  上手快   约束没有schema细致
+    schema  复杂  上手慢   约束要比dtd约束细致
+-->
+
+<jdbc>
+    <dev>
+        <username>root</username>
+        <password>root</password>
+        <driver>com.mysql.cj.jdbc.Driver</driver>
+        <url>jdbc:mysql://localhost:3306/dev</url>
+    </dev>
+    <test>
+        <username>root</username>
+        <password>root</password>
+        <driver>com.mysql.cj.jdbc.Driver</driver>
+        <url>jdbc:mysql://localhost:3306/test</url>
+    </test>
+    <formal>
+        <username>root</username>
+        <password>root</password>
+        <driver>com.mysql.cj.jdbc.Driver</driver>
+        <url>jdbc:mysql://localhost:3306/formal</url>
+    </formal>
+</jdbc>
