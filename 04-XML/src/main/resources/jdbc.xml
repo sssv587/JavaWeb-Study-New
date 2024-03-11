@@ -8,19 +8,19 @@
 -->
 
 <jdbc>
-    <dev>
+    <dev id="001">
         <username>root</username>
         <password>root</password>
         <driver>com.mysql.cj.jdbc.Driver</driver>
         <url>jdbc:mysql://localhost:3306/dev</url>
     </dev>
-    <test>
+    <test id="002">
         <username>root</username>
         <password>root</password>
         <driver>com.mysql.cj.jdbc.Driver</driver>
         <url>jdbc:mysql://localhost:3306/test</url>
     </test>
-    <formal>
+    <formal id="003">
         <username>root</username>
         <password>root</password>
         <driver>com.mysql.cj.jdbc.Driver</driver>
