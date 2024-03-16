@@ -27,6 +27,7 @@
         <module>schedule-system</module>
         <module>04-XML</module>
         <module>05-Tomcat</module>
+        <module>06-Servlet</module>
     </modules>
 
     <properties>
