@@ -13,7 +13,7 @@ import java.io.IOException;
  * @version 1.0
  * @date 2024/3/21 - 23:48
  * @Description Servlet生命周期
- * <p>
+ * Servlet生命周期
  * 1、实例化                     构造器       第一次请求/服务启动时(取决于loan-on-start)     1
  * 2、初始化                      init        构造完毕                                     1
  * 3、接收请求,处理请求 服务      service      每次请求                                    多次
@@ -25,7 +25,24 @@ import java.io.IOException;
  *
  * default-servlet:主要是加载静态资源的
  *
+ * Servlet继承接口
+ *  1 顶级的Servlet接口
+ *    public interface Servlet {
+ *     // 初始化方法,构造完毕后,由tomcat自动调用完成初始化功能的方法
+ *     void init(ServletConfig var1) throws ServletException;
  *
+ *     // 获得ServletConfig对象的方法
+ *     ServletConfig getServletConfig();
+ *
+ *     // 接收用户请求,向用户响应信息的方法
+ *     void service(ServletRequest var1, ServletResponse var2) throws ServletException, IOException;
+ *
+ *     // 返回Servlet字符串形式描述信息的方法
+ *     String getServletInfo();
+ *
+ *     // Servlet在回收前,由tomcat调用的销毁方法,往往用于做资源的释放工作
+ *     void destroy();
+ * }
  */
 // loadOnStartup建议从6开始写,因为在Tomcat的conf/web.xml中,有些值已经被占用了
 @WebServlet(value = "/servletLifeCycle",loadOnStartup = 6)
