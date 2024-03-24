@@ -42,7 +42,29 @@ import java.io.IOException;
  *
  *     // Servlet在回收前,由tomcat调用的销毁方法,往往用于做资源的释放工作
  *     void destroy();
- * }
+ *  }
+ *
+ *  2 抽象的类
+ *  public abstract class GenericServlet implements Servlet, ServletConfig, Serializable
+ *       // 将抽象方法,重写为普通方法,在方法内部没有任何的视线代码
+ *       // 平庸实现
+ *       public void destroy() {}
+ *
+ *  // tomcat在调用init方法时,会读取配置信息,记录一个ServletConfig并将该对象传入init方法
+ *  public void init(ServletConfig config) throws ServletException {
+ *       // 将config对象存储为当前的属性
+ *       this.config = config;
+ *       // 调用了重载的无参的init
+ *       this.init();
+ *  }
+ *  // 重载的初始化方法,我们重写初始化方法时对应的方法
+ *  public void init() throws ServletException {}
+ *  // 方法ServletConfig的方法
+ *  public ServletConfig getServletConfig() {
+ *         return this.config;
+ *  }
+ *  // 再次抽象声明Service方法
+ *  public abstract void service(ServletRequest var1, ServletResponse var2) throws ServletException, IOException;
  */
 // loadOnStartup建议从6开始写,因为在Tomcat的conf/web.xml中,有些值已经被占用了
 @WebServlet(value = "/servletLifeCycle",loadOnStartup = 6)
