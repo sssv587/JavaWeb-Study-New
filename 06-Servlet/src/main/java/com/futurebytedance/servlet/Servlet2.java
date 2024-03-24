@@ -15,7 +15,7 @@ import java.io.IOException;
  * @Description
  */
 //@WebServlet("/xxx")
-@WebServlet(urlPatterns = {"/xxx", "xxx1"})
+@WebServlet(urlPatterns = {"/xxx", "/xxx1"})
 public class Servlet2 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

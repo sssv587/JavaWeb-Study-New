@@ -41,7 +41,7 @@
         <servlet-name>servlet1</servlet-name>
         <!--精确匹配-->
         <url-pattern>/servlet1</url-pattern>
-        <url-pattern>/xx1</url-pattern>
+<!--        <url-pattern>/xx1</url-pattern>-->
 <!--        <url-pattern>/*</url-pattern>-->
     </servlet-mapping>
 
