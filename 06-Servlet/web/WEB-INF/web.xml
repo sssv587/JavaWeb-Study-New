@@ -66,4 +66,22 @@
 <!--        <servlet-name>servletLifeCycle</servlet-name>-->
 <!--        <url-pattern>/servletLifeCycle</url-pattern>-->
 <!--    </servlet-mapping>-->
+    
+    <servlet>
+        <servlet-name>servletConfig1</servlet-name>
+        <servlet-class>com.futurebytedance.servlet.config.ServletConfig1</servlet-class>
+        <init-param>
+            <param-name>keya</param-name>
+            <param-value>valueA</param-value>
+        </init-param>
+        <init-param>
+            <param-name>keyb</param-name>
+            <param-value>valueB</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletConfig1</servlet-name>
+        <url-pattern>/servletConfig1</url-pattern>
+    </servlet-mapping>
 </web-app>
