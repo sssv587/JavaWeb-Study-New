@@ -26,5 +26,13 @@ public class Servlet3 extends HttpServlet {
         // 获取项目的上下文路径 项目的访问路径
         String contextPath = servletContext.getContextPath();
         System.out.println(contextPath);
+
+        // 作为域对象
+        // void setAttribute(String key,Object value); 向域中存储/修改数据
+        servletContext.setAttribute("ka", "va");
+        // Object getAttribute(String key); 获得域中的数据
+//        String ka = (String) servletContext.getAttribute("ka");
+        // void removeAttribute(String key); 移除域中的数据
+//        servletContext.removeAttribute("ka");
     }
 }

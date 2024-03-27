@@ -69,7 +69,7 @@
     
     <servlet>
         <servlet-name>servletConfig1</servlet-name>
-        <servlet-class>com.futurebytedance.servlet.config.ServletConfig1</servlet-class>
+        <servlet-class>com.futurebytedance.servlet.conf.ServletConfig1</servlet-class>
         <init-param>
             <param-name>keya</param-name>
             <param-value>valueA</param-value>

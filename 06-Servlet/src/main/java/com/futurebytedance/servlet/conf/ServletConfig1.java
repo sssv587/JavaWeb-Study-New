@@ -1,10 +1,8 @@
-package com.futurebytedance.servlet.config;
+package com.futurebytedance.servlet.conf;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebInitParam;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -61,5 +59,8 @@ public class ServletConfig1 extends HttpServlet {
             String pname = parameterNames.nextElement();
             System.out.println(pname + "=" + servletContext1.getInitParameter(pname));
         }
+
+        String ka = (String)servletContext1.getAttribute("ka");
+        System.out.println(ka);
     }
 }
