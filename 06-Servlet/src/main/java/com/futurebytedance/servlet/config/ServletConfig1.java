@@ -1,6 +1,7 @@
 package com.futurebytedance.servlet.config;
 
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebInitParam;
 import jakarta.servlet.annotation.WebServlet;
@@ -26,6 +27,7 @@ import java.util.Enumeration;
 public class ServletConfig1 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("----------ServletConfig获取参数------------");
         ServletConfig servletConfig = getServletConfig();
         // 获取初始配置信息即可
         // 根据参数名获取参数值
@@ -39,6 +41,25 @@ public class ServletConfig1 extends HttpServlet {
         while (initParameterNames.hasMoreElements()) {
             String pname = initParameterNames.nextElement();
             System.out.println(pname + "=" + getInitParameter(pname));
+        }
+
+        System.out.println("----------ServletContext获取参数------------");
+
+        // 获取ServletContext
+        ServletContext servletContext1 = getServletContext();
+        ServletContext servletContext2 = servletConfig.getServletContext();
+        ServletContext servletContext3 = req.getServletContext();
+
+        System.out.println(servletContext1 == servletContext2);
+        System.out.println(servletContext2 == servletContext3);
+
+        String encoding = servletContext1.getInitParameter("encoding");
+        System.out.println("encoding:" + encoding);
+
+        Enumeration<String> parameterNames = servletContext1.getInitParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String pname = parameterNames.nextElement();
+            System.out.println(pname + "=" + servletContext1.getInitParameter(pname));
         }
     }
 }

@@ -84,4 +84,9 @@
         <servlet-name>servletConfig1</servlet-name>
         <url-pattern>/servletConfig1</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </context-param>
 </web-app>
