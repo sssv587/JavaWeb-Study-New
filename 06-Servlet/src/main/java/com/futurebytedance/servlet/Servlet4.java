@@ -11,7 +11,7 @@ import java.util.Enumeration;
  * @author yuhang.sun
  * @version 1.0
  * @date 2024/3/27 - 23:48
- * @Description
+ * @Description HttpServletRequest获取请求行和请求体
  */
 @WebServlet("/servlet04")
 public class Servlet4 extends HttpServlet {
@@ -29,7 +29,7 @@ public class Servlet4 extends HttpServlet {
          URL 统一资源定位符  http://localhost:8080/web02/servlet04 class URL implements URI{}  一个具体的资源路径
          */
         System.out.println(request.getLocalPort()); // 本应用容器的端口号
-        System.out.println(request.getServerPort()); // 客户端发请求时使用的端口号
+        System.out.println(request.getServerPort()); // 客户端发请求时使用的端口号 代理
         System.out.println(request.getRemotePort()); // 客户端软件的端口号
 
         // 头相关 key:value key:value ....
