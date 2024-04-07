@@ -1,5 +1,6 @@
 package com.futurebytedance.dao.impl;
 
+import com.futurebytedance.dao.BaseDao;
 import com.futurebytedance.dao.SysUserDao;
 
 /**
@@ -8,5 +9,5 @@ import com.futurebytedance.dao.SysUserDao;
  * @date 2024/4/8 - 0:00
  * @Description
  */
-public class SysUserDaoImpl implements SysUserDao {
+public class SysUserDaoImpl extends BaseDao implements SysUserDao {
 }

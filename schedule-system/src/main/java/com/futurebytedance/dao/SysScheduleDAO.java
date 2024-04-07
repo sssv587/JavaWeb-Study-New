@@ -3,6 +3,8 @@ package com.futurebytedance.dao;
 
 import com.futurebytedance.pojo.SysSchedule;
 
+import java.util.List;
+
 /**
  * @author yuhang.sun
  * @version 1.0
@@ -16,4 +18,10 @@ public interface SysScheduleDAO {
      * @return 返回影响数据库记录的行数,行数为0说明增加失败,行数大于0说明增加成功
      */
     int addSchedule(SysSchedule schedule);
+
+    /**
+     * 查询所有用户的所有日程
+     * @return 将所有日程放入一个List<SysSchedule>集合中
+     */
+    List<SysSchedule> findAll();
 }

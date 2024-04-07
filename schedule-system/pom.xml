@@ -41,5 +41,12 @@
             <artifactId>tomcat-servlet-api</artifactId>
             <version>10.0.21</version>
         </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+<!--            <scope>test</scope>-->
+        </dependency>
     </dependencies>
 </project>
