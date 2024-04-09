@@ -2,6 +2,7 @@ package com.futurebytedance.dao.impl;
 
 import com.futurebytedance.dao.BaseDao;
 import com.futurebytedance.dao.SysUserDao;
+import com.futurebytedance.pojo.SysUser;
 
 /**
  * @author yuhang.sun
@@ -10,4 +11,9 @@ import com.futurebytedance.dao.SysUserDao;
  * @Description
  */
 public class SysUserDaoImpl extends BaseDao implements SysUserDao {
+    @Override
+    public int addSysUser(SysUser sysUser) {
+        String sql = "insert into sys_user values(DEFAULT,?,?)";
+        return baseUpdate(sql, sysUser.getUsername(), sysUser.getUserPwd());
+    }
 }

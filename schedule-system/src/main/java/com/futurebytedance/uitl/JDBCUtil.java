@@ -30,7 +30,6 @@ public class JDBCUtil {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         try {
             dataSource = DruidDataSourceFactory.createDataSource(properties);
         } catch (Exception e) {
