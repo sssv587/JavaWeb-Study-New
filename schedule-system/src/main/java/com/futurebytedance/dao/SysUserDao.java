@@ -18,4 +18,6 @@ public interface SysUserDao {
      * @return 增加成功返回1 增加失败返回0
      */
     int addSysUser(SysUser sysUser);
+
+    SysUser findByUsername(String username);
 }
