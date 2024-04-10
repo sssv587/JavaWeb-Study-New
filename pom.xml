@@ -28,6 +28,7 @@
         <module>04-XML</module>
         <module>05-Tomcat</module>
         <module>06-Servlet</module>
+        <module>07-Session</module>
     </modules>
 
     <properties>
