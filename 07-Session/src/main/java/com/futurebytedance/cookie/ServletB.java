@@ -1,4 +1,4 @@
-package com.futurebytedance.servlet;
+package com.futurebytedance.cookie;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
