@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
  * 删除日程的请求 /sysSchedule/remove
  * ... ...
  */
-@WebServlet("/schedule/*")
+@WebServlet(value = "/schedule/*",name = "servletSchedule")
 public class SysScheduleController extends BaseController {
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("add");
