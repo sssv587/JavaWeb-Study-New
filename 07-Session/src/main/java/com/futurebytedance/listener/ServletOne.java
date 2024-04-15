@@ -22,9 +22,17 @@ public class ServletOne extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 向应用域中放入数据
         ServletContext application = this.getServletContext();
-        application.setAttribute("keya","valuea");
+        application.setAttribute("keya", "valuea");
 
         HttpSession session = req.getSession();
+
+        SessionBindingListener sbl = new SessionBindingListener();
+        session.setAttribute("sbl", sbl);
+        session.removeAttribute("sbl");
+
+        MyActivationListener myActivationListener = new MyActivationListener();
+        session.setAttribute("lis", myActivationListener);
+
         // 手动销毁session
         session.invalidate();
     }
