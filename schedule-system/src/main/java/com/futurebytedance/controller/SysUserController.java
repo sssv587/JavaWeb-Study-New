@@ -7,6 +7,7 @@ import com.futurebytedance.pojo.SysUser;
 import com.futurebytedance.service.SysUserService;
 import com.futurebytedance.service.impl.SysUserServiceImpl;
 import com.futurebytedance.uitl.MD5Util;
+import com.futurebytedance.uitl.WebUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,12 +43,7 @@ public class SysUserController extends BaseController {
             result = Result.build(null, ResultCodeEnum.USERNAME_USED);
         }
         // 将result对象转换为JSON串响应给客户端
-        ObjectMapper objectMapper = new ObjectMapper();
-        String info = objectMapper.writeValueAsString(result);
-
-        // 告诉客户端响应给你的是一个JSON串
-        resp.setContentType("application/json;charset=UTF-8");
-        resp.getWriter().write(info);
+        WebUtil.writeJson(resp, result);
     }
 
     /**
