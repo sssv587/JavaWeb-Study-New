@@ -64,7 +64,7 @@
              *      后端响应回来的信息应当有一个统一的格式,前后端共同遵守
              *      响应一个JSON串
              *      {
-             *         "code":"",  业务状态码  本次请求的业务是否成功?如果失败了,是什么原因失败了?不是响应报文中的响应码
+             *         "code":"101 102 103...",  业务状态码  本次请求的业务是否成功?如果失败了,是什么原因失败了?不是响应报文中的响应码
              *         "message":"", 业务状态码的补充说明/描述
              *         "data":{} 本次响应的数据  成功/不成功  list<Schedule>...
              *         ... ...
@@ -77,16 +77,19 @@
             // 设置回调函数
             request.onreadystatechange = function () {
                 if (request.readyState == 4 && request.status == 200) {
-                    usernameMsg.innerText = request.responseText
+                    var result = JSON.parse(request.responseText)
+                    if (result.code != 200) {
+                        usernameMsg.innerText = "不可用"
+                    }
                 }
             }
             // 设置请求方式和请求的资源路径
-            request.open("GET", "/user/checkUsernameUsed?username="+username)
+            request.open("GET", "/user/checkUsernameUsed?username=" + username)
             // 发送请求
             request.send()
 
-            // usernameMsg.innerText = "OK"
-            // return true
+            usernameMsg.innerText = "OK"
+            return true
         }
 
 

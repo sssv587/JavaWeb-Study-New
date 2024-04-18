@@ -1,5 +1,8 @@
 package com.futurebytedance.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.futurebytedance.common.Result;
+import com.futurebytedance.common.ResultCodeEnum;
 import com.futurebytedance.pojo.SysUser;
 import com.futurebytedance.service.SysUserService;
 import com.futurebytedance.service.impl.SysUserServiceImpl;
@@ -32,11 +35,18 @@ public class SysUserController extends BaseController {
         // 调用服务层业务处理方法查询该用户名是否有对应的用户
         SysUser sysUser = userService.findByUsername(username);
 
-        String info = "可用";
+        Result result = Result.ok(null);
+
         // 如果有 响应 已占用
         if (null != sysUser) {
-            info = "已占用";
+            result = Result.build(null, ResultCodeEnum.USERNAME_USED);
         }
+        // 将result对象转换为JSON串响应给客户端
+        ObjectMapper objectMapper = new ObjectMapper();
+        String info = objectMapper.writeValueAsString(result);
+
+        // 告诉客户端响应给你的是一个JSON串
+        resp.setContentType("application/json;charset=UTF-8");
         resp.getWriter().write(info);
     }
 
