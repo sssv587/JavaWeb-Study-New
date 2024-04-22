@@ -29,6 +29,7 @@
         <module>05-Tomcat</module>
         <module>06-Servlet</module>
         <module>07-Session</module>
+        <module>08-ES6</module>
     </modules>
 
     <properties>
