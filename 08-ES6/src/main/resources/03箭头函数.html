@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // let fun1 = function (){} //普通的函数声明
+        // let fun2 = () => {} // 箭头函数声明 lambda
+        // let fun3 = (x) => {return x + 1} //
+        // let fun4 = x => {return x + 1} // 参数列表中有且仅有一个参数,()可以省略不写
+        // let fun5 = x => console.log(x) // 如果方法体中 只有一行代码 {}
+        // let fun6 = x => x + 1 // 如果方法体中,有且只有一行代码,这行代码是return返回结果的代码 那么{}和return都可以省略不写
+
+        /*
+            箭头函数没有自己的this
+            箭头函数中的this是外层上下文环境中的this
+         */
+        console.log(this) // 其实是window对象
+        let person = {
+            name: 'zhangsan',
+            showNam: function () {
+                console.log(this.name)
+            },
+            viewName: () => {
+                console.log(this.name)
+            }
+        }
+        person.showNam()
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
