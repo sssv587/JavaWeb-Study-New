@@ -15,9 +15,9 @@ import java.io.IOException;
  * @date 2024/4/16 - 0:33
  * @Description
  */
-@WebFilter({"/showSchedule.html", "/schedule/*"}
+//@WebFilter({"/showSchedule.html", "/schedule/*"}
 //        , servletNames = "servletSchedule"
-)
+//)
 public class LoginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
