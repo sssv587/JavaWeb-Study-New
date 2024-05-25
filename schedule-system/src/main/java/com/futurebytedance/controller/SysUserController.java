@@ -69,25 +69,21 @@ public class SysUserController extends BaseController {
      */
     protected void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         // 1、接收用户名和密码
-        String username = req.getParameter("username");
-        String userPwd = req.getParameter("userPwd");
+        SysUser sysUser = WebUtil.readJson(req, SysUser.class);
 
         // 2、调用服务层方法,根据用户名查询用户信息
-        SysUser loginUser = userService.findByUsername(username);
-        if (null == loginUser) {
-            //跳转到用户名有误提示页
-            resp.sendRedirect("/loginUsernameError.html");
-        } else if (!MD5Util.encrypt(userPwd).equals(loginUser.getUserPwd())) {
-            // 3、判断密码是否匹配
-            // 跳转到密码有误提示页
-            resp.sendRedirect("/loginUserPwdError.html");
-        } else {
-            // 登录成功之后,将登录的用户信息放入session
-            HttpSession session = req.getSession();
-            session.setAttribute("sysUser", loginUser);
+        SysUser loginUser = userService.findByUsername(sysUser.getUsername());
 
-            // 4、跳转到首页
-            resp.sendRedirect("/showSchedule.html");
+        Result result = Result.ok(null);
+        if (null == loginUser) {
+            result = Result.build(null, ResultCodeEnum.USERNAME_ERROR);
+        } else if (!MD5Util.encrypt(sysUser.getUserPwd()).equals(loginUser.getUserPwd())) {
+
+            result = Result.build(null, ResultCodeEnum.PASSWORD_ERROR);
+        } else {
+            result = Result.ok(null);
         }
+        // 3、将登陆结果信息响应给客户端
+        WebUtil.writeJson(resp, result);
     }
 }
