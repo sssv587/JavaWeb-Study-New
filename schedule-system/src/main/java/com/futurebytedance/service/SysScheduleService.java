@@ -1,5 +1,9 @@
 package com.futurebytedance.service;
 
+import com.futurebytedance.pojo.SysSchedule;
+
+import java.util.List;
+
 /**
  * @author yuhang.sun
  * @version 1.0
@@ -7,4 +11,5 @@ package com.futurebytedance.service;
  * @Description
  */
 public interface SysScheduleService {
+    List<SysSchedule> findItemListByUid(int uid);
 }

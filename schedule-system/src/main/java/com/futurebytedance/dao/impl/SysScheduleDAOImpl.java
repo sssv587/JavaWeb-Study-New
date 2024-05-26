@@ -24,4 +24,10 @@ public class SysScheduleDAOImpl extends BaseDao implements SysScheduleDAO {
         String sql = "select sid,uid,title,completed from sys_schedule";
         return baseQuery(SysSchedule.class, sql);
     }
+
+    @Override
+    public List<SysSchedule> findItemListByUid(int uid) {
+        String sql = "select sid,uid,title,completed from sys_schedule where uid = ?";
+        return baseQuery(SysSchedule.class, sql, uid);
+    }
 }
