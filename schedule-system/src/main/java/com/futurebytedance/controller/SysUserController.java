@@ -16,6 +16,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author yuhang.sun
@@ -78,10 +80,13 @@ public class SysUserController extends BaseController {
         if (null == loginUser) {
             result = Result.build(null, ResultCodeEnum.USERNAME_ERROR);
         } else if (!MD5Util.encrypt(sysUser.getUserPwd()).equals(loginUser.getUserPwd())) {
-
             result = Result.build(null, ResultCodeEnum.PASSWORD_ERROR);
         } else {
-            result = Result.ok(null);
+            // 登陆成功,将用户uid和username响应给客户端
+            Map data = new HashMap();
+            loginUser.setUserPwd("");
+            data.put("loginUser", loginUser);
+            result = Result.ok(data);
         }
         // 3、将登陆结果信息响应给客户端
         WebUtil.writeJson(resp, result);
