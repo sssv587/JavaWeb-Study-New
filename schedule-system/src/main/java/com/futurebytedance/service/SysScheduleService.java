@@ -12,4 +12,8 @@ import java.util.List;
  */
 public interface SysScheduleService {
     List<SysSchedule> findItemListByUid(int uid);
+
+    Integer addDefaultSchedule(int uid);
+
+    Integer updateSchedule(SysSchedule schedule);
 }

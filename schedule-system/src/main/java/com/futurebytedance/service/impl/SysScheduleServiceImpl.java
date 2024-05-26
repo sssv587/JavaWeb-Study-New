@@ -20,4 +20,14 @@ public class SysScheduleServiceImpl implements SysScheduleService {
     public List<SysSchedule> findItemListByUid(int uid) {
         return sysScheduleDAO.findItemListByUid(uid);
     }
+
+    @Override
+    public Integer addDefaultSchedule(int uid) {
+        return sysScheduleDAO.addDefaultSchedule(uid);
+    }
+
+    @Override
+    public Integer updateSchedule(SysSchedule schedule) {
+        return sysScheduleDAO.updateSchedule(schedule);
+    }
 }

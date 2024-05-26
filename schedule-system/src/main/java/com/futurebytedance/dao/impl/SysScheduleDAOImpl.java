@@ -30,4 +30,16 @@ public class SysScheduleDAOImpl extends BaseDao implements SysScheduleDAO {
         String sql = "select sid,uid,title,completed from sys_schedule where uid = ?";
         return baseQuery(SysSchedule.class, sql, uid);
     }
+
+    @Override
+    public Integer addDefaultSchedule(int uid) {
+        String sql = "insert into sys_schedule values (DEFAULT,?,'请输入日程',0)";
+        return baseUpdate(sql, uid);
+    }
+
+    @Override
+    public Integer updateSchedule(SysSchedule schedule) {
+        String sql = "update sys_schedule set title = ?,completed=? where sid = ?";
+        return baseUpdate(sql, schedule.getTitle(), schedule.getCompleted(), schedule.getSid());
+    }
 }

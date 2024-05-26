@@ -30,8 +30,13 @@ import java.util.Map;
 public class SysScheduleController extends BaseController {
     private SysScheduleService scheduleService = new SysScheduleServiceImpl();
 
-    protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("add");
+    protected void addDefaultSchedule(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 接收请求中的uid参数
+        int uid = Integer.parseInt(req.getParameter("uid"));
+        // 调用服务层方法,向数据库中增一条空记录
+        scheduleService.addDefaultSchedule(uid);
+
+        WebUtil.writeJson(resp, Result.ok(null));
     }
 
     protected void findAllSchedule(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,8 +55,12 @@ public class SysScheduleController extends BaseController {
         WebUtil.writeJson(resp, result);
     }
 
-    protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("update");
+    protected void updateSchedule(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 接收请求体中的JSON串 转换成一个SysSchedule
+        SysSchedule schedule = WebUtil.readJson(req, SysSchedule.class);
+        // 调用服务层方法,将信息更新进入数据
+        scheduleService.updateSchedule(schedule);
+        WebUtil.writeJson(resp, Result.ok(null));
     }
 
     protected void remove(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
