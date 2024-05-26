@@ -63,7 +63,11 @@ public class SysScheduleController extends BaseController {
         WebUtil.writeJson(resp, Result.ok(null));
     }
 
-    protected void remove(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("remove");
+    protected void removeSchedule(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int sid = Integer.parseInt(req.getParameter("sid"));
+        // 调用服务层方法 删除数据
+        scheduleService.removeSchedule(sid);
+        // 响应 成功信息
+        WebUtil.writeJson(resp, Result.ok(null));
     }
 }

@@ -16,4 +16,6 @@ public interface SysScheduleService {
     Integer addDefaultSchedule(int uid);
 
     Integer updateSchedule(SysSchedule schedule);
+
+    Integer removeSchedule(int sid);
 }

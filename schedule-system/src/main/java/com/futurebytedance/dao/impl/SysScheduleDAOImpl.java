@@ -42,4 +42,10 @@ public class SysScheduleDAOImpl extends BaseDao implements SysScheduleDAO {
         String sql = "update sys_schedule set title = ?,completed=? where sid = ?";
         return baseUpdate(sql, schedule.getTitle(), schedule.getCompleted(), schedule.getSid());
     }
+
+    @Override
+    public Integer removeSchedule(int sid) {
+        String sql = "delete from sys_schedule where sid = ?";
+        return baseUpdate(sql, sid);
+    }
 }

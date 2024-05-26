@@ -30,4 +30,9 @@ public class SysScheduleServiceImpl implements SysScheduleService {
     public Integer updateSchedule(SysSchedule schedule) {
         return sysScheduleDAO.updateSchedule(schedule);
     }
+
+    @Override
+    public Integer removeSchedule(int sid) {
+        return sysScheduleDAO.removeSchedule(sid);
+    }
 }
