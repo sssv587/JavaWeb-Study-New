@@ -30,6 +30,7 @@
         <module>06-Servlet</module>
         <module>07-Session</module>
         <module>08-ES6</module>
+        <module>project-headline</module>
     </modules>
 
     <properties>
