@@ -1,6 +1,11 @@
 package com.futurebytedance.headline.service.impl;
 
+import com.futurebytedance.headline.dao.NewsTypeDao;
+import com.futurebytedance.headline.dao.impl.NewsTypeDaoImpl;
+import com.futurebytedance.headline.pojo.NewsType;
 import com.futurebytedance.headline.service.NewsTypeService;
+
+import java.util.List;
 
 /**
  * @author yuhang.sun
@@ -9,4 +14,10 @@ import com.futurebytedance.headline.service.NewsTypeService;
  * @Description
  */
 public class NewsTypeServiceImpl implements NewsTypeService {
+    private NewsTypeDao typeDao = new NewsTypeDaoImpl();
+
+    @Override
+    public List<NewsType> findAll() {
+        return typeDao.findAll();
+    }
 }

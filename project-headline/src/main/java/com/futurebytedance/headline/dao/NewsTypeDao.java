@@ -1,5 +1,9 @@
 package com.futurebytedance.headline.dao;
 
+import com.futurebytedance.headline.pojo.NewsType;
+
+import java.util.List;
+
 /**
  * @author yuhang.sun
  * @version 1.0
@@ -7,4 +11,5 @@ package com.futurebytedance.headline.dao;
  * @Description
  */
 public interface NewsTypeDao {
+    List<NewsType> findAll();
 }
