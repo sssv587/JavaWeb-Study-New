@@ -5,6 +5,7 @@ import com.futurebytedance.headline.dao.NewsHeadLineDao;
 import com.futurebytedance.headline.pojo.vo.HeadlinePageVo;
 import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,11 +17,38 @@ import java.util.List;
 public class NewsHeadLineDaoImpl extends BaseDao implements NewsHeadLineDao {
     @Override
     public List<HeadlinePageVo> findPageList(HeadlineQueryVo headlineQueryVo) {
-        return null;
+        List<Object> param = new ArrayList<Object>();
+
+        String sql = "select hid,title,type,page_views pageViews,TIMESTAMPDIFF(HOUR,create_time,now()) pastHours,publisher from news_headline where is_deleted = 0";
+        if (headlineQueryVo.getType() != 0) {
+            sql = sql.concat(" and type = ? ");
+            param.add(headlineQueryVo.getType());
+        }
+        if (headlineQueryVo.getKeyWords() != null && !headlineQueryVo.getKeyWords().equals("")) {
+            sql = sql.concat(" and title like ?");
+            param.add("%" + headlineQueryVo.getType() + "%");
+        }
+        sql = sql.concat(" order by pastHours asc,page_views desc");
+        sql = sql.concat(" limit ?,?");
+        param.add((headlineQueryVo.getPageNum() - 1) * headlineQueryVo.getPageSize());
+        param.add(headlineQueryVo.getPageSize());
+        return baseQuery(HeadlinePageVo.class, sql, param.toArray());
     }
 
     @Override
     public int findPageCount(HeadlineQueryVo headlineQueryVo) {
-        return 0;
+        List<Object> param = new ArrayList<>();
+
+        String sql = "select count(1) from news_headline where is_deleted = 0";
+        if (headlineQueryVo.getType() != 0) {
+            sql = sql.concat(" and type = ? ");
+            param.add(headlineQueryVo.getType());
+        }
+        if (headlineQueryVo.getKeyWords() != null && !headlineQueryVo.getKeyWords().equals("")) {
+            sql = sql.concat(" and title like ?");
+            param.add("%" + headlineQueryVo.getType() + "%");
+        }
+
+        return baseQueryObject(Long.class, sql, param.toArray()).intValue();
     }
 }

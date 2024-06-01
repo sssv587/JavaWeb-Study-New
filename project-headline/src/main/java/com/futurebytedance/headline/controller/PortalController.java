@@ -55,6 +55,7 @@ public class PortalController extends BaseController {
         Map data = new HashMap();
         data.put("pageInfo", pageInfo);
 
+
         // 将分页查询的结果转换成json响应给客户端
         WebUtil.writeJson(resp, Result.ok(data));
     }
@@ -64,7 +65,6 @@ public class PortalController extends BaseController {
         //查询所有的新闻类型,装入Result响应给客户端
         List<NewsType> newsTypeList = typeService.findAll();
 
-        WebUtil.writeJson(resp, Result.ok(newsTypeList))
-        ;
+        WebUtil.writeJson(resp, Result.ok(newsTypeList));
     }
 }
