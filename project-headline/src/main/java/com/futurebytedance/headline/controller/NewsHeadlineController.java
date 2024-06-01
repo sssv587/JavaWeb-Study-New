@@ -25,6 +25,13 @@ import java.util.Map;
 public class NewsHeadlineController extends BaseController {
     private NewsHeadlineService headlineService = new NewsHeadlineServiceImpl();
 
+    // 删除头条业务接口实现
+    protected void removeByHid(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String hid = req.getParameter("hid");
+        headlineService.removeByHid(hid);
+        WebUtil.writeJson(resp, Result.ok(null));
+    }
+
     // 更新头条的业务接口实现
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         NewsHeadline newsHeadline = WebUtil.readJson(req, NewsHeadline.class);
