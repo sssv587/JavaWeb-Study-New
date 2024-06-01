@@ -1,5 +1,7 @@
 package com.futurebytedance.headline.service;
 
+import com.futurebytedance.headline.pojo.NewsUser;
+
 /**
  * @author yuhang.sun
  * @version 1.0
@@ -7,4 +9,8 @@ package com.futurebytedance.headline.service;
  * @Description
  */
 public interface NewsUserService {
+    // 根据用户登录的账号找用户信息的方法
+    NewsUser findByUsername(String username);
+
+    NewsUser findByUid(Integer userId);
 }
