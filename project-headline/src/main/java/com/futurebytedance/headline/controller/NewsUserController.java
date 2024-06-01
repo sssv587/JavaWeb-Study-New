@@ -33,7 +33,7 @@ public class NewsUserController extends BaseController {
 
         Result result = Result.build(null, ResultCodeEnum.NOTLOGIN);
         if (null != token) {
-            if (JwtHelper.isExpiration(token)) {
+            if (!JwtHelper.isExpiration(token)) {
                 result = Result.ok(null);
             }
         }
