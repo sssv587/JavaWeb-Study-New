@@ -1,5 +1,9 @@
 package com.futurebytedance.headline.service;
 
+import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
+
+import java.util.Map;
+
 /**
  * @author yuhang.sun
  * @version 1.0
@@ -7,4 +11,5 @@ package com.futurebytedance.headline.service;
  * @Description
  */
 public interface NewsHeadlineService {
+    Map findPage(HeadlineQueryVo headlineQueryVo);
 }

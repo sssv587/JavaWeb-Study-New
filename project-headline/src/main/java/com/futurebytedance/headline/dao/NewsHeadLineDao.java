@@ -1,5 +1,10 @@
 package com.futurebytedance.headline.dao;
 
+import com.futurebytedance.headline.pojo.vo.HeadlinePageVo;
+import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
+
+import java.util.List;
+
 /**
  * @author yuhang.sun
  * @version 1.0
@@ -7,4 +12,7 @@ package com.futurebytedance.headline.dao;
  * @Description
  */
 public interface NewsHeadLineDao {
+    List<HeadlinePageVo> findPageList(HeadlineQueryVo headlineQueryVo);
+
+    int findPageCount(HeadlineQueryVo headlineQueryVo);
 }

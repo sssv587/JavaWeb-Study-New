@@ -2,6 +2,10 @@ package com.futurebytedance.headline.dao.impl;
 
 import com.futurebytedance.headline.dao.BaseDao;
 import com.futurebytedance.headline.dao.NewsHeadLineDao;
+import com.futurebytedance.headline.pojo.vo.HeadlinePageVo;
+import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
+
+import java.util.List;
 
 /**
  * @author yuhang.sun
@@ -10,4 +14,13 @@ import com.futurebytedance.headline.dao.NewsHeadLineDao;
  * @Description
  */
 public class NewsHeadLineDaoImpl extends BaseDao implements NewsHeadLineDao {
+    @Override
+    public List<HeadlinePageVo> findPageList(HeadlineQueryVo headlineQueryVo) {
+        return null;
+    }
+
+    @Override
+    public int findPageCount(HeadlineQueryVo headlineQueryVo) {
+        return 0;
+    }
 }
