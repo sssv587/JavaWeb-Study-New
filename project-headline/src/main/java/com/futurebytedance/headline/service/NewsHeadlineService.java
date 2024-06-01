@@ -1,5 +1,6 @@
 package com.futurebytedance.headline.service;
 
+import com.futurebytedance.headline.pojo.vo.HeadlineDetailVo;
 import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
 
 import java.util.Map;
@@ -12,4 +13,6 @@ import java.util.Map;
  */
 public interface NewsHeadlineService {
     Map findPage(HeadlineQueryVo headlineQueryVo);
+
+    HeadlineDetailVo findHeadlineDetail(int hid);
 }

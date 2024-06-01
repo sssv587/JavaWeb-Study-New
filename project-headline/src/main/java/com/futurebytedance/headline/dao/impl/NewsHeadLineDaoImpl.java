@@ -2,6 +2,7 @@ package com.futurebytedance.headline.dao.impl;
 
 import com.futurebytedance.headline.dao.BaseDao;
 import com.futurebytedance.headline.dao.NewsHeadLineDao;
+import com.futurebytedance.headline.pojo.vo.HeadlineDetailVo;
 import com.futurebytedance.headline.pojo.vo.HeadlinePageVo;
 import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
 
@@ -50,5 +51,19 @@ public class NewsHeadLineDaoImpl extends BaseDao implements NewsHeadLineDao {
         }
 
         return baseQueryObject(Long.class, sql, param.toArray()).intValue();
+    }
+
+    @Override
+    public int incrPageViews(int hid) {
+        String sql = "update news_headline set page_views = page_views + 1 where hid = ?";
+        return baseUpdate(sql, hid);
+    }
+
+    @Override
+    public HeadlineDetailVo findHeadLineDetail(int hid) {
+        String sql = "select hid,title,article,type,tname typeName ,page_views pageViews,TIMESTAMPDIFF(HOUR,create_time,NOW()) pastHours,publisher,nick_name author from news_headline h left join  news_type t on h.type = t.tid left join news_user u  on h.publisher = u.uid where hid = ?";
+        List<HeadlineDetailVo> list = baseQuery(HeadlineDetailVo.class, sql, hid);
+
+        return null != list && list.size() > 0 ? list.get(0) : null;
     }
 }

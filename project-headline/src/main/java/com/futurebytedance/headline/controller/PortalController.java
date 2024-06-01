@@ -2,6 +2,7 @@ package com.futurebytedance.headline.controller;
 
 import com.futurebytedance.headline.common.Result;
 import com.futurebytedance.headline.pojo.NewsType;
+import com.futurebytedance.headline.pojo.vo.HeadlineDetailVo;
 import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
 import com.futurebytedance.headline.service.NewsHeadlineService;
 import com.futurebytedance.headline.service.NewsTypeService;
@@ -29,6 +30,18 @@ import java.util.Map;
 public class PortalController extends BaseController {
     private NewsTypeService typeService = new NewsTypeServiceImpl();
     private NewsHeadlineService headlineService = new NewsHeadlineServiceImpl();
+
+    // 查询头条详情的业务接口实现
+    protected void showHeadlineDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 接收要查询头条的hid
+        int hid = Integer.parseInt(req.getParameter("hid"));
+        // 调用服务层完成查询处理
+        HeadlineDetailVo headlineDetailVo = headlineService.findHeadlineDetail(hid);
+        // 将查询到的信息响应给客户端
+        Map data = new HashMap();
+        data.put("headline", headlineDetailVo);
+        WebUtil.writeJson(resp, Result.ok(data));
+    }
 
     // 分页查询头条信息接口实现
     /*   pageData:[{
