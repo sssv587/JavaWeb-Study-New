@@ -12,6 +12,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author yuhang.sun
@@ -22,6 +24,22 @@ import java.io.IOException;
 @WebServlet("/headline/*")
 public class NewsHeadlineController extends BaseController {
     private NewsHeadlineService headlineService = new NewsHeadlineServiceImpl();
+
+    // 更新头条的业务接口实现
+    protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        NewsHeadline newsHeadline = WebUtil.readJson(req, NewsHeadline.class);
+        headlineService.update(newsHeadline);
+        WebUtil.writeJson(resp, Result.ok(null));
+    }
+
+    // 查找头条的业务接口实现
+    protected void findHeadlineByHid(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer hid = Integer.parseInt(req.getParameter("hid"));
+        NewsHeadline headline = headlineService.findByHid(hid);
+        Map<String, Object> data = new HashMap<>();
+        data.put("headline", headline);
+        WebUtil.writeJson(resp, Result.ok(data));
+    }
 
     // 发布头条的接口实现
     protected void publish(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

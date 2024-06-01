@@ -18,4 +18,8 @@ public interface NewsHeadlineService {
     HeadlineDetailVo findHeadlineDetail(int hid);
 
     int addNewsHeadline(NewsHeadline newsHeadline);
+
+    NewsHeadline findByHid(Integer hid);
+
+    int update(NewsHeadline newsHeadline);
 }
