@@ -25,7 +25,7 @@ public class LoginFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String token = request.getHeader("token");
         boolean flag = null != token && !JwtHelper.isExpiration(token);
-
+        System.out.println("flag=" + flag);
         if (flag) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {

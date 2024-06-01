@@ -2,6 +2,7 @@ package com.futurebytedance.headline.service.impl;
 
 import com.futurebytedance.headline.dao.NewsHeadLineDao;
 import com.futurebytedance.headline.dao.impl.NewsHeadLineDaoImpl;
+import com.futurebytedance.headline.pojo.NewsHeadline;
 import com.futurebytedance.headline.pojo.vo.HeadlineDetailVo;
 import com.futurebytedance.headline.pojo.vo.HeadlinePageVo;
 import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
@@ -43,5 +44,10 @@ public class NewsHeadlineServiceImpl implements NewsHeadlineService {
         headLineDao.incrPageViews(hid);
         // 修改该头条的浏览量 + 1
         return headLineDao.findHeadLineDetail(hid);
+    }
+
+    @Override
+    public int addNewsHeadline(NewsHeadline newsHeadline) {
+        return headLineDao.addNewsHeadline(newsHeadline);
     }
 }

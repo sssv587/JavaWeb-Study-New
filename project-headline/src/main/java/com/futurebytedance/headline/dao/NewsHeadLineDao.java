@@ -1,5 +1,6 @@
 package com.futurebytedance.headline.dao;
 
+import com.futurebytedance.headline.pojo.NewsHeadline;
 import com.futurebytedance.headline.pojo.vo.HeadlineDetailVo;
 import com.futurebytedance.headline.pojo.vo.HeadlinePageVo;
 import com.futurebytedance.headline.pojo.vo.HeadlineQueryVo;
@@ -20,4 +21,6 @@ public interface NewsHeadLineDao {
     int incrPageViews(int hid);
 
     HeadlineDetailVo findHeadLineDetail(int hid);
+
+    int addNewsHeadline(NewsHeadline newsHeadline);
 }
